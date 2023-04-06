@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>탭메뉴 이미지 변경</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        li {list-style: none;}
+        .cont01 {
+            width: 1280px;
+            margin: 100px auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        .cont01 .tab_menu {
+            width: 280px;
+        }
+        .cont01 .tab_menu li {
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+        .cont01 .tab_cont {
+            width: 980px;
+            height: 350px;
+        }
+        .cont01 .tab_cont img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section class="cont01">
+        <ul class="tab_menu">
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+        </ul><!-- tab_menu end -->
+        <div class="tab_cont">
+            <img src="img/img01.jpg" alt="" />
+        </div><!-- tab_cont end -->
+
+    </section><!-- .cont01 end -->
+
+    <script>
+        let cont = document.getElementsByClassName('cont01')[0];   
+        let contImg = cont.getElementsByTagName('img')[0];
+        let contMenu = cont.getElementsByTagName('li');  
+
+        let i = 0;
+
+        //li한테 아래쪽으로 테두리 스타일 적용
+        contMenu[0].style.borderBottom = '1px solid #333';
+
+        for(i; i<contMenu.length; i++) {
+            //console.log(i) 
+            let num = i + 1;
+            let imgChange = 'img/img' + 0 + num + '.jpg';
+            contMenu[i].onclick = function(){
+                console.log(i)
+                contImg.src = imgChange;
+
+                //클릭을 했을 때 li한테 스타일 변화
+                //if문으로 작성(조건식)
+                 
+
+                    contMenu[0].style.borderBottom = '1px solid #fff';
+                    contMenu[1].style.borderBottom = '1px solid #fff';
+                    contMenu[2].style.borderBottom = '1px solid #fff';
+
+                    this.style.borderBottom = '1px solid #333' 
+                 
+
+            }//contMenu.onclick 
+
+
+        } //for
+    </script>
+</body>
+</html>
